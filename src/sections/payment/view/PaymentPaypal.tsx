@@ -84,7 +84,7 @@ function PayPalCheckout({ prod }: Props) {
 
   return (
     <div className="my-auto">
-      <h1 className='text-lg'>Total Amount : {prod.amount.value}</h1>
+      <h2 className='text-lg'>Total : {prod.amount.value}</h2>
       {/* Added the centering styles */}
       <div ref={paypal} />
     </div>

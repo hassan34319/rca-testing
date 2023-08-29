@@ -33,8 +33,23 @@ export default function ElearningNewsletter() {
       // Step 2: Use client.create to create the subscription document
       await client.create(subscriptionData);
 
-      console.log('Subscription document created successfully!');
       setEmail('')
+
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }), // Send email in the request body
+      });
+
+      if (response.ok) {
+        console.log('Subscription request sent successfully!');
+      } else {
+        console.error('Error sending subscription request:', response.statusText);
+      }
+
+      console.log('Subscription document created successfully!');
     } catch (error) {
       console.error('Error creating subscription document:', error);
     }

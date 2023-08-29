@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
@@ -11,6 +11,7 @@ import Typography from '@mui/material/Typography';
 import Iconify from 'src/components/iconify';
 import { useBoolean } from 'src/hooks/use-boolean';
 import { CourseSanity } from 'src/types/SanityCourse';
+import { ICourseFiltersProps } from 'src/types/course';
 
 import ElearningNewsletter from '../elearning-newsletter';
 import ElearningFilters from '../filters/elearning-filters';
@@ -23,8 +24,21 @@ import ElearningCourseList from '../list/elearning-course-list';
 // console.log('hola', _courses)
 
 export default function ElearningCoursesView({courses} : {courses : CourseSanity[]}) {
+  const defaultValues = {
+    filterDuration: [],
+    filterCategories: [],
+    filterRating: null,
+    filterFee: [],
+    filterLevel: [],
+    filterLanguage: [],
+  };
+  const [filters, setFilters] = useState<ICourseFiltersProps>(defaultValues);
   const mobileOpen = useBoolean();
-
+  if (filters.filterCategories.length > 0) {
+    courses = courses.filter(course =>
+      filters.filterCategories.includes(course.category)
+    );
+  }
   const loading = useBoolean(true);
 
   
@@ -63,7 +77,7 @@ export default function ElearningCoursesView({courses} : {courses : CourseSanity
         </Stack>
 
         <Stack direction={{ xs: 'column', md: 'row' }}>
-          <ElearningFilters open={mobileOpen.value} onClose={mobileOpen.onFalse} />
+          <ElearningFilters open={mobileOpen.value} onClose={mobileOpen.onFalse} filters={filters} setFilters={setFilters} />
 
           <Box
             sx={{

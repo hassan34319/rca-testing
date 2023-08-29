@@ -22,11 +22,11 @@ type Prod = {
 
 type Props = {
   course: CourseSanity;
-  setProd : (prod :Prod ) => void;
-  setCheckout : (value : boolean) => void;
+  setProd: (prod: Prod) => void;
+  setCheckout: (value: boolean) => void;
 };
 
-export default function ElearningCourseDetailsInfo({ course,setProd,setCheckout }: Props) {
+export default function ElearningCourseDetailsInfo({ course, setProd, setCheckout }: Props) {
   const session = useSession();
   console.log(session);
 
@@ -38,7 +38,7 @@ export default function ElearningCourseDetailsInfo({ course,setProd,setCheckout 
         value: course.priceSale || course.price!,
       },
     });
-    setCheckout(true)
+    setCheckout(true);
   };
   return (
     <Card sx={{ p: 3, borderRadius: 2 }}>
@@ -96,11 +96,7 @@ export default function ElearningCourseDetailsInfo({ course,setProd,setCheckout 
         </Stack>
 
         {session ? (
-          <Button            variant="contained"
-            size="large"
-            color="inherit"
-            onClick={handleOpenCheckout}
-          >
+          <Button variant="contained" size="large" color="inherit" onClick={handleOpenCheckout}>
             Adquirir
           </Button>
         ) : (

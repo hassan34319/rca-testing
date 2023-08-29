@@ -44,8 +44,23 @@ export default function ElearningContactForm() {
   } = methods;
 
   const onSubmit = handleSubmit(async (data) => {
+    console.log("SUBMIT")
     try {
-      await new Promise((resolve) => setTimeout(resolve, 500));
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email : data.email, fullName : data.fullName, subject : data.subject, message : data.message  }), // Send email in the request body
+      });
+
+      if (response.ok) {
+        console.log('Form sent successfully!');
+      } else {
+        console.error('Form reques failedt:', response.statusText);
+      }
+
+      console.log('Form created successfully!');
       reset();
       console.log('DATA', data);
     } catch (error) {
@@ -95,7 +110,7 @@ export default function ElearningContactForm() {
 
                 <RHFTextField name="subject" label="Tema" />
 
-                <RHFTextField name="Mensaje" multiline rows={4} label="Message" sx={{ pb: 2.5 }} />
+                <RHFTextField name="message" multiline rows={4} label="Message" sx={{ pb: 2.5 }} />
 
                 <LoadingButton
                   size="large"

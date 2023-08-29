@@ -28,12 +28,14 @@ const defaultValues = {
 type Props = {
   open: boolean;
   onClose: VoidFunction;
+  filters : ICourseFiltersProps;
+  setFilters : (filters : ICourseFiltersProps) => void
 };
 
-export default function ElearningFilters({ open, onClose }: Props) {
+export default function ElearningFilters({ open, onClose,filters, setFilters }: Props) {
   const mdUp = useResponsive('up', 'md');
 
-  const [filters, setFilters] = useState<ICourseFiltersProps>(defaultValues);
+  console.log(filters.filterCategories)
 
   const handleChangeRating = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -42,7 +44,7 @@ export default function ElearningFilters({ open, onClose }: Props) {
         filterRating: (event.target as HTMLInputElement).value,
       });
     },
-    [filters]
+    [filters, setFilters]
   );
 
   const handleChangeCategory = useCallback(
@@ -52,7 +54,7 @@ export default function ElearningFilters({ open, onClose }: Props) {
         filterCategories: newValue,
       });
     },
-    [filters]
+    [filters, setFilters]
   );
 
   const handleChangeLevel = useCallback(
@@ -65,7 +67,7 @@ export default function ElearningFilters({ open, onClose }: Props) {
         filterLevel: typeof value === 'string' ? value.split(',') : value,
       });
     },
-    [filters]
+    [filters,setFilters]
   );
 
   const handleChangeFee = useCallback(
@@ -78,7 +80,7 @@ export default function ElearningFilters({ open, onClose }: Props) {
         filterFee: typeof value === 'string' ? value.split(',') : value,
       });
     },
-    [filters]
+    [filters,setFilters]
   );
 
   const handleChangeDuration = useCallback(
@@ -91,7 +93,7 @@ export default function ElearningFilters({ open, onClose }: Props) {
         filterDuration: typeof value === 'string' ? value.split(',') : value,
       });
     },
-    [filters]
+    [filters,setFilters]
   );
 
   const handleChangeLanguage = useCallback(
@@ -101,7 +103,7 @@ export default function ElearningFilters({ open, onClose }: Props) {
         filterLanguage: newValue,
       });
     },
-    [filters]
+    [filters,setFilters]
   );
 
   const renderContent = (

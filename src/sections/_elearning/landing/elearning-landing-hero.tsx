@@ -109,24 +109,18 @@ export default function ElearningLandingHero() {
 
 
 <Grid item xs={12} md={6}>
-          {/* This is where your Player component goes */}
-          <Player
-            controls
-            url="https://www.dropbox.com/s/odzycivuo9cy5rg/video_01.mp4?dl=0"
-            style={{
-              display: 'block',
-              margin: '0 auto',
-              maxWidth: '70%', // Default to 70% on all screens
-              width: '100%', // Full width on extra small screens
-              borderRadius: '10px',
-              [theme.breakpoints.up('md')]: {
-                // Apply styles for screens with width >= 'md' breakpoint
-                maxWidth: '70%',
-                width: '70%',
-              },
-            }}
-          />
-     </Grid>
+        <Player
+          controls
+          url="https://www.dropbox.com/s/odzycivuo9cy5rg/video_01.mp4?dl=0"
+          style={{
+            display: 'block',
+            margin: '0 auto',
+            maxWidth: mdUp ? '70%' : '100%', // Set maxWidth based on screen size
+            width: '100%',
+            borderRadius: '10px',
+          }}
+        />
+      </Grid>
 
 
                 <Stack

@@ -46,19 +46,17 @@ export default function ElearningLandingHero() {
       >
         <Container
           sx={{
-            py: 5,
+            py: 1,
             display: { md: 'flex' },
             alignItems: { md: 'center' },
-            height: { md: `120vh` },
+            mt: 0
           }}
         >
 
             <Stack
   sx={{
-    textAlign: 'center', // Centrar el texto en dispositivos pequeños y medianos
-    // [theme.breakpoints.up('md')]: {
-    //   textAlign: 'center', // Restaurar la alineación normal en dispositivos grandes
-    // },
+    textAlign: 'center', 
+    mt: 5,
     paddingTop: 5,
   }}
 >
@@ -84,9 +82,8 @@ export default function ElearningLandingHero() {
         width: '100%', // Establece el ancho al 100%
         maxWidth: '100%', // Establece el ancho máximo al 100%
         '@media (max-width:600px)': {
-          // Aplica estos estilos solo cuando la pantalla sea pequeña
-          paddingX: 0, // Elimina el padding horizontal
-          textAlign: 'center', // Centra el texto
+          paddingX: 0, 
+          textAlign: 'center'
         },
       }}
     >

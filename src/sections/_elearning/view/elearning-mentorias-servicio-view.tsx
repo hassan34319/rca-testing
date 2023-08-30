@@ -1,5 +1,7 @@
 'use client';
 
+import React from 'react';
+
 import ElearningMentoriaServicio from '../mentorias/elearning-mentorias-servicio';
 
 // ----------------------------------------------------------------------

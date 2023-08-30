@@ -1,5 +1,7 @@
 'use client';
 
+import React from 'react';
+
 import ElearningContactForm from '../contact/elearning-contact-form';
 import ElearningMentoriasTrading from '../mentorias/elearning-mentorias-trading';
 

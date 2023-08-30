@@ -1,3 +1,5 @@
+import React from 'react';
+
 import ElearningMentoriasInvestingView from 'src/sections/_elearning/view/elearning-mentorias-investing-view';
 // ----------------------------------------------------------------------
 

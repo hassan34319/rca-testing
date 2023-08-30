@@ -1,14 +1,12 @@
-import ElearningMentoriaServicioView from 'src/sections/_elearning/view/elearning-mentorias-servicio-view';
+import React from 'react';
 
-import { client } from '../utils/client';
+import ElearningMentoriaServicioView from 'src/sections/_elearning/view/elearning-mentorias-servicio-view';
 
 // ----------------------------------------------------------------------
 
 export const metadata = {
   title: 'Mentoria Servicio',
 };
-
-export const revalidate = 60
 
 export default function ElearningMentoringServicioPage() {
 

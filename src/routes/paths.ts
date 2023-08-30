@@ -6,6 +6,9 @@ export const paths = {
   posts: '/posts',
   post: `/post`,
   about: '/nosotros',
+  mentoriastrading: '/mentorias-trading',
+  mentoriasinvesting: '/mentorias-investing',
+  mentoriaservice: '/mentorias/service',
   contact: '/contacto',
   // Auth
   loginBackground: '/auth/iniciar-sesion',

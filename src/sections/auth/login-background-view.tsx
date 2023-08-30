@@ -76,7 +76,7 @@ export default async function LoginBackgroundView() {
       </Typography>
 
       <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-      ¿No tienes una cuenta? 
+      ¿No tienes una cuenta?{'\u00A0\u00A0'}
         <Link
           component={RouterLink}
           href={paths.registerBackground}
@@ -99,9 +99,9 @@ export default async function LoginBackgroundView() {
         <Iconify icon="carbon:logo-facebook" width={24} sx={{ color: '#1877F2' }} />
       </Button>
 
-      <Button color="inherit" fullWidth variant="outlined" size="large">
+      {/* <Button color="inherit" fullWidth variant="outlined" size="large">
         <Iconify icon="carbon:logo-github" width={24} sx={{ color: 'text.primary' }} />
-      </Button>
+      </Button> */}
     </Stack>
   );
 

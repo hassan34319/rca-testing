@@ -39,6 +39,7 @@ export const navConfig = [
   { title: 'Home', path: '/' },
   { title: 'Cursos', path: paths.courses },
   { title: 'Blog', path: paths.posts },
+  { title: 'Mentorias', path: paths.mentoriastrading },
   { title: 'Nosotros', path: paths.about },
   { title: 'Contacto', path: paths.contact },
 ];

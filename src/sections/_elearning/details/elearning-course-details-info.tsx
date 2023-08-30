@@ -89,10 +89,10 @@ export default function ElearningCourseDetailsInfo({ course, setProd, setCheckou
             Acceso en escritorio, tablets, móviles
           </Stack>
 
-          <Stack direction="row" alignItems="center" sx={{ typography: 'body2' }}>
+          {/* <Stack direction="row" alignItems="center" sx={{ typography: 'body2' }}>
             <Iconify icon="carbon:certificate" sx={{ mr: 1 }} />
             Certificado de finalización
-          </Stack>
+          </Stack> */}
         </Stack>
 
         {session ? (

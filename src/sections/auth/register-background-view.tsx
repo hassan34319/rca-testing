@@ -111,11 +111,11 @@ export default function RegisterBackgroundView() {
 
   const renderSocials = (
     <Stack direction="row" spacing={2}>
-      <Button fullWidth size="large" color="inherit" variant="outlined">
+      <Button fullWidth size="large" color="inherit" variant="outlined" onClick={() => signIn('google')}>
         <Iconify icon="logos:google-icon" width={24} />
       </Button>
 
-      <Button fullWidth size="large" color="inherit" variant="outlined">
+      <Button fullWidth size="large" color="inherit" variant="outlined" onClick={() => signIn('facebook')}>
         <Iconify icon="carbon:logo-facebook" width={24} sx={{ color: '#1877F2' }} />
       </Button>
 

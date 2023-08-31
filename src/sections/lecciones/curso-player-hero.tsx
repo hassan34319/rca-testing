@@ -4,11 +4,12 @@ import { alpha, useTheme } from '@mui/material/styles';
 
 import { bgGradient } from 'src/theme/css';
 import { ICourseProps } from 'src/types/course';
+import { CourseSanity } from 'src/types/SanityCourse';
 
 // ----------------------------------------------------------------------
 
 type Props = {
-  course: ICourseProps;
+  course: CourseSanity;
 };
 
 export default function CursoPlayerHero({ course }: Props) {

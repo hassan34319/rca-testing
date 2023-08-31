@@ -9,6 +9,7 @@ import {author} from "./sanity/PostSchemas/author";
 import {course} from "./sanity/CourseSchemas/course";
 import { lesson } from "./sanity/CourseSchemas/lesson";
 import {miscursos} from "./sanity/PaymentSchemas/order";
+import { mentor } from "./sanity/PaymentSchemas/Mentor";
 import { teacher } from "./sanity/CourseSchemas/teacher";
 import { subscription } from "./sanity/PaymentSchemas/subscription";
 
@@ -22,6 +23,6 @@ export default defineConfig({
   dataset,
   plugins: [deskTool()],
   schema: {
-    types: [course,lesson,teacher,user,post,author,account,verificationToken,miscursos,subscription],
+    types: [course,lesson,teacher,user,post,author,account,verificationToken,miscursos,subscription,mentor],
   },
 });

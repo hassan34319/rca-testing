@@ -11,6 +11,7 @@ import { useBoolean } from 'src/hooks/use-boolean';
 import { CourseSanity } from 'src/types/SanityCourse';
 
 import ElearningCourseList from '../list/elearning-course-list';
+import ElearningMisCourseList from '../list/elearning-miscourse-list';
 
 export default function ElearningMisView({ courses }: { courses: CourseSanity[] }) {
   const { data: session } = useSession();
@@ -35,7 +36,7 @@ export default function ElearningMisView({ courses }: { courses: CourseSanity[] 
         <Typography variant="h2">Mis Cursos</Typography>
       </Box>
       {session ? (
-        <ElearningCourseList courses={courses} loading={loading.value} />
+        <ElearningMisCourseList courses={courses} loading={loading.value} />
       ) : (
         <h2>Por favor inicia sesión para acceder a esta página</h2>
       )}

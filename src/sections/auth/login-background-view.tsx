@@ -25,7 +25,7 @@ import FormProvider, { RHFTextField } from 'src/components/hook-form';
 
 // ----------------------------------------------------------------------
 
-export default async function LoginBackgroundView() {
+export default  function LoginBackgroundView() {
   const router = useRouter()
   const passwordShow = useBoolean();
 
@@ -91,11 +91,11 @@ export default async function LoginBackgroundView() {
 
   const renderSocials = (
     <Stack direction="row" spacing={2}>
-      <Button fullWidth size="large" color="inherit" variant="outlined">
+      <Button fullWidth size="large" color="inherit" variant="outlined" onClick={() => signIn('google')}>
         <Iconify icon="logos:google-icon" width={24} />
       </Button>
 
-      <Button fullWidth size="large" color="inherit" variant="outlined">
+      <Button fullWidth size="large" color="inherit" variant="outlined" onClick={() => signIn('facebook')}>
         <Iconify icon="carbon:logo-facebook" width={24} sx={{ color: '#1877F2' }} />
       </Button>
 

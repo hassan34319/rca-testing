@@ -6,17 +6,65 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography'; // Import TextField
+import toast from 'react-hot-toast';
 
-export default function ElearningMentoriaServicio() {
+import { client } from 'src/app/utils/client';
+
+type Prod = {
+  description: string;
+  amount: {
+    currency_code: string;
+    value: number;
+  };
+};
+
+type Props = {
+  prod: Prod;
+};
+
+export default function ElearningMentoriaServicio({ prod }: Props) {
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
 
-  const handleEmailChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
+  const handleEmailChange = (event: { target: { value: React.SetStateAction<string> } }) => {
     setEmail(event.target.value);
   };
 
-  const handlePhoneNumberChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
+  const handlePhoneNumberChange = (event: { target: { value: React.SetStateAction<string> } }) => {
     setPhoneNumber(event.target.value);
+  };
+
+  const handleSubmit = async () => {
+    const newOrder = {
+      _type: 'mentor',
+      email,
+      phoneNumber,
+      plan: prod.description,
+    };
+    await client.create(newOrder);
+    console.log('Created new order document');
+
+    const response = await fetch('/api/mentor', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email,
+        subject: "Thankyou!",
+        message: "Thankyou for registring for our mentorship",
+      }), // Send email in the request body
+    });
+
+    if (response.ok) {
+      console.log('Form sent successfully!');
+      setEmail('')
+      setPhoneNumber('')
+      toast.success('Form Submitted');
+    } else {
+      console.error('Form reques failedt:', response.statusText);
+    }
+
   };
 
   return (
@@ -60,12 +108,14 @@ export default function ElearningMentoriaServicio() {
                 textAlign: 'center',
               }}
             >
-              <Typography variant="subtitle1">Llena este formulario para ponernos en contacto contigo</Typography>
+              <Typography variant="subtitle1">
+                Llena este formulario para ponernos en contacto contigo
+              </Typography>
             </Box>
           </Grid>
         </Grid>
       </Container>
-      
+
       {/* Tarjeta del Formulario */}
       <Container>
         <Grid
@@ -97,41 +147,39 @@ export default function ElearningMentoriaServicio() {
                 textAlign: 'center',
               }}
             >
-            <form noValidate autoComplete="on">
-              <TextField
-                label="Email"
-                variant="outlined"
-                fullWidth
-                value={email}
-                onChange={handleEmailChange}
-                sx={{ mt: 2 }}
-                InputProps={{
-                  style: { backgroundColor: '#fff' }, // Input background color
-                }}
-              />
-              <TextField
-                label="Número de Teléfono"
-                variant="outlined"
-                fullWidth
-                value={phoneNumber}
-                onChange={handlePhoneNumberChange}
-                sx={{ mt: 2 }}
-                InputProps={{
-                  style: { backgroundColor: '#fff' }, // Input background color
-                }}
-              />
-              <Button
-                variant="outlined" // Use contained button style
-                size="large"
-                color="primary"
-                sx={{ mt: 3 }}
-                onClick={() => {
-                  // Handle form submission here
-                }}
-              >
-                Enviar
-              </Button>
-            </form>
+              <form noValidate autoComplete="on">
+                <TextField
+                  label="Email"
+                  variant="outlined"
+                  fullWidth
+                  value={email}
+                  onChange={handleEmailChange}
+                  sx={{ mt: 2 }}
+                  InputProps={{
+                    style: { backgroundColor: '#fff' }, // Input background color
+                  }}
+                />
+                <TextField
+                  label="Número de Teléfono"
+                  variant="outlined"
+                  fullWidth
+                  value={phoneNumber}
+                  onChange={handlePhoneNumberChange}
+                  sx={{ mt: 2 }}
+                  InputProps={{
+                    style: { backgroundColor: '#fff' }, // Input background color
+                  }}
+                />
+                <Button
+                  variant="outlined" // Use contained button style
+                  size="large"
+                  color="primary"
+                  sx={{ mt: 3 }}
+                  onClick={handleSubmit}
+                >
+                  Enviar
+                </Button>
+              </form>
             </Box>
           </Grid>
         </Grid>

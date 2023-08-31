@@ -4,8 +4,8 @@ import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 
 import { _courses } from 'src/_mock';
-import { ICourseProps } from 'src/types/course';
 import Player from 'src/components/player/player';
+import { CourseSanity } from 'src/types/SanityCourse';
 
 import CursoPlayerHero from './curso-player-hero';
 import CursoPlayerLessonList from './curso-player-lesson-list';
@@ -13,7 +13,7 @@ import CursoPlayerLessonList from './curso-player-lesson-list';
 
 
 type Props = {
-  course: ICourseProps;
+  course: CourseSanity;
 };
 
 const _mockCourse = _courses[0];
@@ -24,7 +24,7 @@ export default function CursoPlayer({ course }: Props) {
   return (
     <>
     
-      <CursoPlayerHero course={_mockCourse}/>
+      <CursoPlayerHero course={course}/>
       <Stack style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '75vh' }}>
 <Box>
       <Player

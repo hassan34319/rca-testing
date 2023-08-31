@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react';
 
 import Box from '@mui/material/Box';
@@ -8,6 +10,19 @@ import Typography from '@mui/material/Typography';
 import { Card, CardContent } from '@mui/material';
 
 import Player from 'src/components/player';
+
+type Prod = {
+  description: string;
+  amount: {
+    currency_code: string;
+    value: number;
+  };
+};
+
+type Props = {
+  setProd: (prod: Prod) => void;
+  setCheckout: (value: boolean) => void;
+};
 
 const cardData = [
     {
@@ -45,7 +60,23 @@ const cardData = [
   ];
   
 
-  export default function ElearningMentoriasTrading() {
+  export default function ElearningMentoriasTrading({ setProd, setCheckout }: Props) {
+    const handleOpenCheckout = (card: {
+      plan: string;
+      price: string;
+      features: string[];
+      buttonText: string;
+      buttonLink: string;
+    }) => {
+      setProd({
+        description: card.plan,
+        amount: {
+          currency_code: 'USD',
+          value: Number(card.price),
+        },
+      });
+      setCheckout(true);
+    };
     return (
       <Box
         sx={{
@@ -138,13 +169,10 @@ const cardData = [
                           </ul>
                         </div>
                       </CardContent>
-                      <Button variant="outlined" size="medium" color="primary" href={card.buttonLink} sx={{ mt: 1 , ml: 3, mr: 3, mb: 2}}>
-
-
+                      <Button onClick={() => handleOpenCheckout(card)}
+                      variant="outlined" size="medium" color="primary" href={card.buttonLink} sx={{ mt: 1 , ml: 3, mr: 3, mb: 2}}
+                    >
                         {/* The button here should take you to the payment of the card */}
-
-
-                        
                         {card.buttonText}
                       </Button>
                     </Card>

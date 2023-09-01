@@ -24,7 +24,7 @@ export default async function ElearningPostIndividualPage({ params }: { params: 
   const postId = params.id;
 
   const post: PostSanity = await client.fetch(
-    `*[_type == "post" && id == $postId && category == "course"][0]`,
+    `*[_type == "post" && id == $postId][0]`,
     {
       postId, // Pass the courseId as a parameter in the options object
     }

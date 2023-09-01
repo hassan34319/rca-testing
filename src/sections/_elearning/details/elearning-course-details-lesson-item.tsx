@@ -23,7 +23,7 @@ export default function ElearningCourseDetailsLessonItem({
   onSelected,
   onExpanded,
 }: LessonItemProps) {
-  const playIcon = selected ? 'carbon:pause-outline' : 'carbon:play';
+  const playIcon = 'carbon:play';
 
   return (
     <Accordion

@@ -27,9 +27,13 @@ export default function CursoPlayerLessonItem({
 
   return (
     <Accordion
-      expanded={expanded}
-      onChange={onExpanded}
-      disabled={!lesson.unLocked}
+    expanded={expanded}
+    onChange={onExpanded}
+    onClick={onSelected}
+    onMouseEnter={(event) => onExpanded(event, true)} // Expand on mouse enter
+    onMouseLeave={(event) => onExpanded(event, false)} // Collapse on mouse leave
+    disabled={false}
+    
       sx={{
         [`&.${accordionClasses.expanded}`]: {
           borderRadius: 0,
@@ -51,7 +55,7 @@ export default function CursoPlayerLessonItem({
       >
         <Iconify
           width={24}
-          icon={!lesson.unLocked ? 'carbon:locked' : playIcon}
+          icon={playIcon}
           onClick={onSelected}
         />
 

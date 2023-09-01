@@ -124,7 +124,7 @@ export default function ElearningLandingHero() {
   direction="row"
   justifyContent="center" // Centrar horizontalmente en todos los dispositivos
   alignItems="center"
-  sx={{ typography: 'h5', mt: 2 }} // Añadir margen superior para separar del subtítulo
+  sx={{ typography: 'h5', mt: 4 }} // Añadir margen superior para separar del subtítulo
 >
 <Fab size="medium" color="info" href='/cursos' onClick={videoOpen.onTrue} sx={{ mr: 1 }}>
     <Iconify width={25} icon="fluent-mdl2:learning-tools" />
@@ -138,9 +138,9 @@ Explorar cursos
 </Stack>
 
 
-                <Divider sx={{ borderStyle: 'dashed', mt: 5, mb: 6 }} />
+                <Divider sx={{ borderStyle: 'dashed', mt: 10, mb: 3 }} />
 
-                <Stack
+                {/* <Stack
       direction="row"
       spacing={{ xs: 3, sm: 10 }}
       justifyContent="center" // Centrado horizontal
@@ -166,13 +166,13 @@ Explorar cursos
                       </Typography>
                     </Stack>
                   ))}
-                </Stack>
+                </Stack> */}
               </Stack>
 
         </Container>
       </Box>
 
       {/* <PlayerDialog open={videoOpen.value} onClose={videoOpen.onFalse} videoPath={_mock.video(0)} /> */}
-</>
+    </>
   );
 }

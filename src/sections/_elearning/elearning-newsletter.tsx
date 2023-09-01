@@ -3,9 +3,10 @@
 import { useState } from 'react';
 
 import Box from '@mui/material/Box';
+import { Alert } from '@mui/material';
 import Button from '@mui/material/Button';
-import Grid from '@mui/material/Unstable_Grid2';
 import Container from '@mui/material/Container';
+import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
 import InputAdornment from '@mui/material/InputAdornment';
 import InputBase, { inputBaseClasses } from '@mui/material/InputBase';
@@ -17,6 +18,7 @@ import { client } from 'src/app/utils/client';
 
 export default function ElearningNewsletter() {
   const [email, setEmail] = useState('');
+  const [showAlert, setShowAlert] = useState(false);
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
@@ -45,6 +47,7 @@ export default function ElearningNewsletter() {
 
       if (response.ok) {
         console.log('Subscription request sent successfully!');
+        setShowAlert(true); 
       } else {
         console.error('Error sending subscription request:', response.statusText);
       }
@@ -114,6 +117,11 @@ export default function ElearningNewsletter() {
             />
           </Grid>
         </Grid>
+        {showAlert && (
+          <Alert severity="success" sx={{ mt: 3 }}>
+            Suscripción enviada correctamente!
+          </Alert>
+        )}
       </Container>
     </Box>
   );

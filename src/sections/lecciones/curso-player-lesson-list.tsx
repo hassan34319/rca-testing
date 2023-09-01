@@ -45,7 +45,7 @@ export default function CursoPlayerLessonList({ lessons }: Props) {
 
   return (
     <div>
-      <Typography variant="h4" sx={{ mb: 3 }}>
+      <Typography variant="h4" color="primary" sx={{ mb: 3 }}>
         Lecciones del curso
       </Typography>
 

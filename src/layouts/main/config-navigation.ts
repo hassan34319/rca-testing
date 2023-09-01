@@ -39,7 +39,19 @@ export const navConfig = [
   { title: 'Home', path: '/' },
   { title: 'Cursos', path: paths.courses },
   { title: 'Blog', path: paths.posts },
-  { title: 'Mentorias', path: paths.mentoriasinvesting },
+  {
+    title: 'Mentorias',
+    path: '/page',
+    children: [
+      {
+        subheader: '',
+        items: [
+          { title: 'Trading', path: '/mentorias-trading' },
+          { title: 'Investing', path: '/mentorias-investing' },
+        ],
+      },
+    ],
+  },
   { title: 'Nosotros', path: paths.about },
   { title: 'Contacto', path: paths.contact },
-];
+]

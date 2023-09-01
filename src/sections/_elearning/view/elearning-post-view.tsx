@@ -3,21 +3,22 @@
 import { useState, useCallback } from 'react';
 
 import Fab from '@mui/material/Fab';
+import { textAlign } from '@mui/system';
 import Stack from '@mui/material/Stack';
 import Avatar from '@mui/material/Avatar';
-import Divider from '@mui/material/Divider';
 import Popover from '@mui/material/Popover';
-import MenuItem from '@mui/material/MenuItem';
+import Divider from '@mui/material/Divider';
 import Checkbox from '@mui/material/Checkbox';
-import Grid from '@mui/material/Unstable_Grid2';
+import MenuItem from '@mui/material/MenuItem';
 import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Unstable_Grid2';
 import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
 import { alpha, useTheme } from '@mui/material/styles';
 
 import { _socials } from 'src/_mock';
-import { paths } from 'src/routes/paths';
 import Image from 'src/components/image';
+import { paths } from 'src/routes/paths';
 import Iconify from 'src/components/iconify';
 import { fDate } from 'src/utils/format-time';
 import Markdown from 'src/components/markdown';
@@ -71,7 +72,7 @@ export default function ElearningPostView({post, posts} : {post : PostSanity , p
           sx={{ my: 5 }}
         />
 
-        <Stack
+        {/* <Stack
           alignItems="center"
           justifyContent="center"
           sx={{ position: 'relative', borderRadius: 2, overflow: 'hidden' }}
@@ -94,7 +95,7 @@ export default function ElearningPostView({post, posts} : {post : PostSanity , p
               theme.palette.common.black
             } 75%)`}
           />
-        </Stack>
+        </Stack> */}
 
         <Grid container spacing={3} justifyContent={{ md: 'center' }}>
           <Grid xs={12} md={8}>
@@ -103,15 +104,14 @@ export default function ElearningPostView({post, posts} : {post : PostSanity , p
               sx={{
                 pb: 6,
                 textAlign: 'center',
-                pt: { xs: 6, md: 10 },
+                pt: { xs: 2, md: 3 },
               }}
             >
-              <Typography variant="body2" sx={{ color: 'text.disabled' }}>
-                {duration}
-              </Typography>
-
               <Typography variant="h2" component="h1">
                 {title}
+              </Typography>
+              <Typography variant="body2" sx={{ color: 'text.disabled' }}>
+                {duration}
               </Typography>
 
               <Typography variant="h5">{description}</Typography>
@@ -119,7 +119,7 @@ export default function ElearningPostView({post, posts} : {post : PostSanity , p
 
             <Divider />
 
-            <Stack direction="row" justifyContent="space-between" spacing={1.5} sx={{ py: 3 }}>
+            <Stack direction="row" justifyContent="space-between" spacing={1.5} sx={{ py: 3}}>
               <Avatar src={author.avatarUrl} sx={{ width: 48, height: 48 }} />
 
               <Stack spacing={0.5} flexGrow={1}>
@@ -129,7 +129,7 @@ export default function ElearningPostView({post, posts} : {post : PostSanity , p
                 </Typography>
               </Stack>
 
-              <Stack direction="row" alignItems="center">
+              {/* <Stack direction="row" alignItems="center">
                 <IconButton onClick={handleOpen} color={open ? 'primary' : 'default'}>
                   <Iconify icon="carbon:share" />
                 </IconButton>
@@ -141,14 +141,14 @@ export default function ElearningPostView({post, posts} : {post : PostSanity , p
                   icon={<Iconify icon="carbon:favorite" />}
                   checkedIcon={<Iconify icon="carbon:favorite-filled" />}
                 />
-              </Stack>
+              </Stack> */}
             </Stack>
 
             <Divider sx={{ mb: 6 }} />
 
             <Markdown content={content} firstLetter />
 
-            <PostSocialsShare />
+            {/* <PostSocialsShare /> */}
 
             <Divider sx={{ mt: 8 }} />
 
@@ -167,7 +167,7 @@ export default function ElearningPostView({post, posts} : {post : PostSanity , p
 
       <ElearningNewsletter />
 
-      <Popover
+      {/* <Popover
         open={!!open}
         onClose={handleClose}
         anchorEl={open}
@@ -182,10 +182,10 @@ export default function ElearningPostView({post, posts} : {post : PostSanity , p
         {_socials.map((social) => (
           <MenuItem key={social.value} onClick={handleClose}>
             <Iconify icon={social.icon} width={24} sx={{ mr: 1, color: social.color }} />
-            Compartir por {social.label}
+            {social.label}
           </MenuItem>
         ))}
-      </Popover>
+      </Popover> */}
     </>
   );
 }

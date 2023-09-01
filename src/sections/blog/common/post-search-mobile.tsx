@@ -17,7 +17,7 @@ export default function PostSearchMobile() {
           <TextField
             fullWidth
             hiddenLabel
-            placeholder="Search..."
+            placeholder="Buscar..."
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">

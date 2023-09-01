@@ -85,7 +85,7 @@ export default function ElearningCourseDetailsLessonsDialog({
       {lessons?.map((lesson) => {
         const selected = selectedLesson?.id === lesson.id;
 
-        const playIcon = selected ? 'carbon:pause-outline' : 'carbon:play';
+        const playIcon = 'carbon:play';
 
         return (
           <ListItemButton
@@ -135,7 +135,7 @@ export default function ElearningCourseDetailsLessonsDialog({
     <Dialog
       fullWidth
       maxWidth="lg"
-      open={open}
+      open={false}
       onClose={onClose}
       PaperProps={{
         sx: {

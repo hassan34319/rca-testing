@@ -1,3 +1,4 @@
+import { Divider } from '@mui/material';
 import Stack from '@mui/material/Stack';
 import Dialog from '@mui/material/Dialog';
 import IconButton from '@mui/material/IconButton';
@@ -40,7 +41,7 @@ export default function CursoPlayerLessonsDialog({
       alignItems="center"
       justifyContent="center"
       sx={{
-        width: { xs: 1, md: 0.5 },
+        width: { xs: 1, md: 1 },
         height: { xs: 320, md: 640 },
       }}
     >
@@ -77,8 +78,8 @@ export default function CursoPlayerLessonsDialog({
       spacing={0.5}
       sx={{
         p: 1,
-        overflowY: 'scroll',
-        width: { xs: 1, md: 0.5 },
+        overflowY: 'hidden',
+        width: { xs: 1, md: 1 },
         height: { xs: 320, md: 640 },
       }}
     >
@@ -139,7 +140,8 @@ export default function CursoPlayerLessonsDialog({
       onClose={onClose}
       PaperProps={{
         sx: {
-          overflow: 'hidden',
+          // overflow: 'hidden',
+          overflowY: 'scroll',
         },
       }}
     >
@@ -147,9 +149,9 @@ export default function CursoPlayerLessonsDialog({
         <Iconify icon="carbon:close" />
       </IconButton>
 
-      <Stack direction={{ xs: 'column', md: 'row' }} sx={{ height: 1 }}>
+      <Stack direction={{ xs: 'column', md: 'column' }} sx={{ height: 1 }}>
         {renderVideo}
-
+        <Divider sx={{ mt: 3, mb: 2, mr: 3, ml: 3 , borderColor: 'rgba(0, 0, 0, 0.3)' }} />
         {renderList}
       </Stack>
     </Dialog>

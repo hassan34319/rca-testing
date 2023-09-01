@@ -82,7 +82,7 @@ export default function ElearningCourseDetailsHero({ course }: Props) {
                   overflow: 'hidden',
                 }}
               >
-                <Fab
+                {/* <Fab
                   color="primary"
                   onClick={videoOpen.onTrue}
                   sx={{
@@ -91,12 +91,12 @@ export default function ElearningCourseDetailsHero({ course }: Props) {
                   }}
                 >
                   <Iconify icon="carbon:play" width={24} />
-                </Fab>
+                </Fab> */}
 
                 <Image
                   alt="hero"
                   src={coverUrl}
-                  ratio={mdUp ? '3/4' : '4/3'}
+                  ratio={mdUp ? '1/1' : '3/4'}
                   overlay={`linear-gradient(to bottom, ${alpha(
                     theme.palette.common.black,
                     0

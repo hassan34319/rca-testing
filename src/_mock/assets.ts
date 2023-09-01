@@ -330,31 +330,14 @@ export const _companyNames = [
 // ----------------------------------------------------------------------
 
 export const _tags = [
-  'Nuevo',
-  'Otra categoria',
   'Finance',
-  'otra',
-  'Photography',
-  'Art',
-  'Fashion',
-  'Food',
   'Travel',
-  'Fitness',
-  'Nature',
   'Business',
-  'Music',
-  'Health',
   'Books',
-  'Sports',
-  'Film',
   'Education',
   'Motivation',
-  'Gaming',
-  'Pets',
-  'Cooking',
   'Finance',
-  'Selfcare',
-  'Writing',
+  'Nuevo',
 ];
 
 // ----------------------------------------------------------------------

@@ -31,7 +31,7 @@ export default function ElearningPosts({ posts }: Props) {
       </Box>
 
       <Pagination
-        count={10}
+        count={1}
         color="primary"
         sx={{
           py: { xs: 8, md: 10 },

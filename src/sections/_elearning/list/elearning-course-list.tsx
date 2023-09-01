@@ -27,7 +27,7 @@ export default function ElearningCourseList({ courses, loading }: Props) {
       </Stack>
 
       <Pagination
-        count={10}
+        count={1}
         color="primary"
         sx={{
           my: 10,

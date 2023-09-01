@@ -114,7 +114,7 @@ export default function ElearningFilters({ open, onClose,filters, setFilters }: 
         width: { xs: 1, md: 280 },
       }}
     >
-      <TextField
+      {/* <TextField
         fullWidth
         hiddenLabel
         placeholder="Buscar..."
@@ -125,7 +125,7 @@ export default function ElearningFilters({ open, onClose,filters, setFilters }: 
             </InputAdornment>
           ),
         }}
-      />
+      /> */}
 
       {/* <Block title="Calificaciones">
         <FilterRating filterRating={filters.filterRating} onChangeRating={handleChangeRating} />

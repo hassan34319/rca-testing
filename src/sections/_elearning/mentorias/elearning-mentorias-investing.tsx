@@ -179,12 +179,11 @@ export default function ElearningMentoriasInvesting({ setProd, setCheckout }: Pr
                         </ul>
                       </div>
                     </CardContent>
-                    <Button
-                      variant="outlined"
-                      size="medium"
-                      color="primary"
-                      sx={{ mt: 1, ml: 3, mr: 3, mb: 2 }}
-                      onClick={() => handleOpenCheckout(card)}
+                    <Button onClick={() => handleOpenCheckout(card)}
+                      variant="outlined" size="large" color="primary" 
+                      style={{ textTransform: 'none'}} 
+                      href={card.buttonLink} 
+                      sx={{ mt: 1 , ml: 3, mr: 3, mb: 2, fontSize: '1.2em',}}
                     >
                       {card.buttonText}
                     </Button>

@@ -1,10 +1,11 @@
 import Stack from '@mui/material/Stack';
-import { useTheme } from '@mui/material/styles';
+import { Box, Paper } from '@mui/material';
 import Container from '@mui/material/Container';
+import { useTheme } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 
+import Image from 'src/components/image';
 import { IBrandProps } from 'src/types/brand';
-import SvgColor from 'src/components/svg-color';
 import Carousel, { useCarousel } from 'src/components/carousel';
 
 // ----------------------------------------------------------------------
@@ -38,28 +39,52 @@ export default function ElearningOurClients({ brands }: Props) {
   return (
     <Container
       sx={{
-        pt: 10,
+        pt: { xs: 10, md: 7 },
         pb: { xs: 5, md: 10 },
-        backgroundColor: '#f0f6ff'
       }}
     >
       <Stack
         spacing={3}
         sx={{
+          mx: 'auto',
+          maxWidth: 480,
           textAlign: 'center',
           mb: { xs: 8, md: 10 },
         }}
       >
-        <Typography variant="h2">Nuestras alianzas</Typography>
+        <Typography variant="h2">Nuestras Alianzas</Typography>
 
         <Typography sx={{ color: 'text.secondary' }}>
-          Quisque aliquet, libero consequat elementum convallis.
+          Curabitur a felis in nunc fringilla tristique. Fusce egestas elit eget lorem. Etiam vitae
+          tortor.
         </Typography>
       </Stack>
 
       <Carousel {...carousel.carouselSettings}>
         {brands.map((brand) => (
-          <SvgColor key={brand.id} src={brand.image} sx={{ width: 106, height: 32 }} />
+          <Box key={brand.id} sx={{ px: 1.5 }}>
+            <Stack
+              component={Paper}
+              alignItems="center"
+              justifyContent="center"
+              variant="outlined"
+              sx={{
+                py: 3,
+                borderRadius: 2,
+                bgcolor: 'background.default',
+              }}
+            >
+              <Image
+                alt={brand.name}
+                src={brand.image}
+                sx={{
+                  width: 106,
+                  height: 32,
+                  mx: 'auto',
+                }}
+              />
+            </Stack>
+          </Box>
         ))}
       </Carousel>
     </Container>

@@ -172,7 +172,6 @@ const cardData = [
                       <Button onClick={() => handleOpenCheckout(card)}
                       variant="outlined" size="large" color="primary" 
                       style={{ textTransform: 'none'}} 
-                      href={card.buttonLink} 
                       sx={{ mt: 1 , ml: 3, mr: 3, mb: 2, fontSize: '1.2em',}}
                     >
                         {/* The button here should take you to the payment of the card */}

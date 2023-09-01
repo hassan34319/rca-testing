@@ -15,7 +15,7 @@ export default async function PlayerPage({ params }: { params: { id: string } })
   const session = await getSessionServer();
   console.log(session);
   const email = session?.user?.email;
-  if(!email ) {
+  if (!email) {
     return <div className="text-lg">NO COURSE FOUND</div>;
   }
   const courseId = params.id;
@@ -29,8 +29,7 @@ export default async function PlayerPage({ params }: { params: { id: string } })
   const miscursosDoc = await client.fetch(query, { email });
 
   if (miscursosDoc) {
-    const courseSlugs = miscursosDoc.course_slugs
-    console.log(courseSlugs,courseId)
+    const courseSlugs = miscursosDoc.course_slugs;
     if (courseSlugs.includes(courseId)) {
       console.log('CORRECT USER');
     } else {

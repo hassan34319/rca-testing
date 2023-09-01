@@ -14,8 +14,7 @@ export const revalidate = 60
 export default async function ElearningPostsPage() {
   const getAllPosts = async () => {
     try {
-      const posts : PostSanity[] = await client.fetch(`*[_type == "post" && category == "course"]`);
-      console.log('fetched Posts from sanity')
+      const posts : PostSanity[] = await client.fetch(`*[_type == "post"]`);
       return posts;
     } catch (error) {
       console.error('Error fetching courses from Sanity:', error.message);

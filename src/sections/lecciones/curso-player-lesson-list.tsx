@@ -26,7 +26,7 @@ export default function CursoPlayerLessonList({ lessons }: Props) {
   }, [videoPlay]);
 
   const handleSelectedLesson = useCallback((lesson: ICourseLessonProp) => {
-    if (lesson.unLocked) {
+    if (true) {
       setSelectedLesson(lesson);
     }
   }, []);
@@ -66,7 +66,8 @@ export default function CursoPlayerLessonList({ lessons }: Props) {
         lessons={lessons}
         selectedLesson={selectedLesson}
         onSelectedLesson={(lesson) => setSelectedLesson(lesson)}
-        open={!!selectedLesson?.unLocked}
+        // eslint-disable-next-line react/jsx-boolean-value
+        open={true}
         onClose={handleClose}
         playing={videoPlay.value}
         onReady={handleReady}

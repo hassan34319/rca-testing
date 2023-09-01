@@ -12,7 +12,6 @@ export default async function ElearningPostIndividualPage({ params }: { params: 
   const getAllPosts = async () => {
     try {
       const posts: PostSanity[] = await client.fetch(`*[_type == "post" && category == "course"]`);
-      console.log('fetched Posts from sanity');
       return posts;
     } catch (error) {
       console.error('Error fetching courses from Sanity:', error.message);
@@ -23,7 +22,6 @@ export default async function ElearningPostIndividualPage({ params }: { params: 
   const posts = await getAllPosts();
 
   const postId = params.id;
-  console.log(postId)
 
   const post: PostSanity = await client.fetch(
     `*[_type == "post" && id == $postId && category == "course"][0]`,

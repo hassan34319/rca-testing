@@ -24,6 +24,5 @@ export default async function ElearningCoursesPage() {
   };
 
   const courses = await getAllCourses()
-  console.log(courses)
   return <ElearningCoursesView courses={courses} />;
 }

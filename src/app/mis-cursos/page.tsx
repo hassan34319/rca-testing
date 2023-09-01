@@ -14,7 +14,6 @@ export const revalidate = 60;
 
 export default async function ElearningCoursesPage() {
   const session = await getSessionServer();
-  console.log(session);
   const email = session?.user?.email;
 
   const getAllCourses = async () => {
@@ -38,7 +37,6 @@ export default async function ElearningCoursesPage() {
       const courses = await Promise.all(coursesPromises);
       return courses;
       // Now the 'allCourses' array contains details of all courses related to the user's email
-      console.log(courses);
     }
     console.log("No 'miscursos' document found for the provided email.");
     return [];

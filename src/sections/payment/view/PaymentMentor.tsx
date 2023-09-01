@@ -1,10 +1,10 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-import { useSession } from 'next-auth/react';
 import React, { useRef, useState, useEffect } from 'react';
 
-import { client } from 'src/app/utils/client';
+import { Box, Stack, Divider, Typography } from '@mui/material';
+
+import Iconify from 'src/components/iconify';
 import ElearningMentoriaServicio from 'src/sections/_elearning/mentorias/elearning-mentorias-servicio';
 
 type Prod = {
@@ -49,6 +49,7 @@ function PayPalMentor({ prod }: Props) {
   }, [prod]);
 
   if (transactionStatus === "success") {
+    console.log("SUCCESS")
     return (
     <ElearningMentoriaServicio prod={prod}/>
     )
@@ -59,11 +60,60 @@ function PayPalMentor({ prod }: Props) {
   }
 
   return (
-    <div className="my-auto">
-      <h2 className='text-lg'>Total : {prod.amount.value}</h2>
-      {/* Added the centering styles */}
-      <div ref={paypal} />
-    </div>
+    <Box
+    sx={{
+      p: 5,
+      borderRadius: 2,
+      bgcolor: 'background.neutral',
+    
+    }}
+    >
+    <Typography variant="h5" sx={{ mb: 5 }}>
+      Resumen
+    </Typography>
+    
+    
+    
+    <Stack spacing={2.5}>
+    
+    <Stack direction="row" alignItems="center" justifyContent="space-between">
+    
+    <Typography color="primary" variant="inherit">{prod.description}</Typography>
+    </Stack>
+    <Divider sx={{ borderStyle: 'dashed' }} />
+    
+      <Stack spacing={1} direction="row" justifyContent="flex-end">
+        <Typography variant="h5">$</Typography>
+    
+        <Typography variant="h3">{prod.amount.value}</Typography>
+    
+        <Typography component="span" sx={{ mb: 1, alignSelf: 'center', color: 'text.secondary' }}>
+          /usd
+        </Typography>
+      </Stack>
+    
+    </Stack>
+    
+    <Typography
+      component="div"
+      variant="caption"
+      sx={{ color: 'text.secondary', mt: 1, mb:5, textAlign: 'right' }}
+    >
+      * Más impuestos aplicables
+    </Typography>
+    <div ref={paypal} style={{ width: 'auto', height: 'auto' }} />
+    
+    <Stack alignItems="center" spacing={1}>
+      <Stack direction="row" alignItems="center" spacing={1}>
+        <Iconify icon="carbon:security" sx={{ mt:3, color: 'success.main' }} />
+        <Typography variant="subtitle2">Pago seguro con PayPal</Typography>
+      </Stack>
+    
+      <Typography variant="caption" sx={{ color: 'text.secondary', textAlign: 'center' }}>
+      Este es un pago seguro, encriptado SSL de 128 bits
+      </Typography>
+    </Stack>
+    </Box>
   );
 }
 

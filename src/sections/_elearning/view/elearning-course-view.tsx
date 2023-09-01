@@ -72,9 +72,9 @@ export default function ElearningCourseView({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '100vh', // This will make sure the container takes full vertical height
+    height: 'auto', // This will make sure the container takes full vertical height
     width: '100vw',
-    margin: '0 auto',
+    margin: 'auto auto',
   };
 
   return (

@@ -28,7 +28,6 @@ type Props = {
 
 export default function ElearningCourseDetailsInfo({ course, setProd, setCheckout }: Props) {
   const session = useSession();
-  console.log(session);
 
   const handleOpenCheckout = () => {
     setProd({

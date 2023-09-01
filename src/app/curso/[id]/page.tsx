@@ -14,7 +14,6 @@ export default async function ElearningCoursePage({ params }: { params: { id: st
   const getAllCourses = async () => {
     try {
       const courses: CourseSanity[] = await client.fetch(`*[_type == "course"]`);
-      console.log('fetched Courses from sanity');
       return courses;
     } catch (error) {
       console.error('Error fetching courses from Sanity:', error.message);
@@ -25,7 +24,6 @@ export default async function ElearningCoursePage({ params }: { params: { id: st
   const courses = await getAllCourses();
 
   const courseId = params.id;
-  console.log(courseId)
 
   const course: CourseSanity = await client.fetch(
     `*[_type == "course" && id == $courseId][0]`,
@@ -34,8 +32,6 @@ export default async function ElearningCoursePage({ params }: { params: { id: st
     }
   );
 
-
-  console.log(course)
 
   return <ElearningCourseView course={course} courses={courses} />;
 }

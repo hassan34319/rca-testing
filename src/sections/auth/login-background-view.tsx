@@ -52,6 +52,17 @@ export default  function LoginBackgroundView() {
     formState: { isSubmitting },
   } = methods;
 
+  const handleFb = async()=> {
+    await signIn('facebook', { callbackUrl: `${process.env.NEXTAUTH_URL}` })
+    toast.success('Successfully signed In')
+    router.push('/')
+  }
+  const handleGoogle = async()=> {
+    await signIn('google', { callbackUrl: `${process.env.NEXTAUTH_URL}` })
+    toast.success('Successfully signed In', )
+    router.push('/')
+  }
+
   const onSubmit = handleSubmit(async (data) => {
     try {
       await signIn('sanity-login', {
@@ -64,7 +75,7 @@ export default  function LoginBackgroundView() {
       reset();
     } catch (error) {
       toast.error('Not logged in')
-      router.push('/login')
+      router.push('/auth/iniciar-session')
       console.error(error);
     }
   });
@@ -91,11 +102,11 @@ export default  function LoginBackgroundView() {
 
   const renderSocials = (
     <Stack direction="row" spacing={2}>
-      <Button fullWidth size="large" color="inherit" variant="outlined" onClick={() => signIn('google')}>
+      <Button fullWidth size="large" color="inherit" variant="outlined" onClick={()=> signIn('google', { callbackUrl: `http://localhost:8002/` }) }>
         <Iconify icon="logos:google-icon" width={24} />
       </Button>
 
-      <Button fullWidth size="large" color="inherit" variant="outlined" onClick={() => signIn('facebook')}>
+      <Button fullWidth size="large" color="inherit" variant="outlined" onClick={()=> signIn('facebook', { callbackUrl: `http://localhost:8002/` }) }>
         <Iconify icon="carbon:logo-facebook" width={24} sx={{ color: '#1877F2' }} />
       </Button>
 

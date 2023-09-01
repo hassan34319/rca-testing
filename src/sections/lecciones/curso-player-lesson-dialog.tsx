@@ -92,20 +92,17 @@ export default function CursoPlayerLessonsDialog({
           <ListItemButton
             key={lesson.id}
             selected={selected}
-            disabled={!lesson.unLocked}
+            disabled={false}
             onClick={() => onSelectedLesson(lesson)}
             sx={{ borderRadius: 1 }}
           >
             <Iconify
               width={24}
-              icon={!lesson.unLocked ? 'carbon:locked' : playIcon}
+              icon={playIcon}
               sx={{
                 mr: 2,
                 ...(selected && {
                   color: 'primary.main',
-                }),
-                ...(!lesson.unLocked && {
-                  color: 'text.disabled',
                 }),
               }}
             />
@@ -136,7 +133,8 @@ export default function CursoPlayerLessonsDialog({
     <Dialog
       fullWidth
       maxWidth="lg"
-      open={open}
+      // eslint-disable-next-line react/jsx-boolean-value
+      open={true}
       onClose={onClose}
       PaperProps={{
         sx: {
